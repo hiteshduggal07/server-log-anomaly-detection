@@ -1,97 +1,120 @@
-# server-log-anomaly-detection
-# 🚨 Server Log Anomaly Detection using Isolation Forest
+# 🔐 Server Log Anomaly Detection for Cybersecurity  
+Using Unsupervised Machine Learning (Isolation Forest, DBSCAN, KMeans, One-Class SVM)
 
-This project detects anomalies in server logs using **Isolation Forest**, an unsupervised machine learning algorithm widely used for outlier detection. The goal is to identify unusual patterns in log data that may indicate **potential security threats, unauthorized access, or abnormal system behavior**.
+This project applies multiple unsupervised machine learning techniques to detect anomalies in server logs and network traffic. It was developed as part of the **NIELIT Summer Training Programme in Data Science Using Python (2025)**.
 
----
-
-## 📂 Project Overview
-
-Modern servers generate large volumes of log data, making manual monitoring difficult.  
-This project automates anomaly detection by:
-
-- Preprocessing raw log files
-- Extracting meaningful features (IP hits, timestamps, request patterns, etc.)
-- Training an Isolation Forest model
-- Identifying unusual or suspicious log entries
-- Visualizing anomaly distribution
-
-This approach performs significantly better than clustering-based methods like K-Means for detecting rare anomalies.
+The goal is to identify suspicious activities, unusual traffic behavior, and potential cyberattacks using clustering and anomaly detection models.
 
 ---
 
-## 🧠 Machine Learning Used
+## 📌 Project Overview
 
-### **Isolation Forest**
-- Specifically designed for anomaly detection  
-- Performs well on imbalanced datasets  
-- Identifies points that are easier to isolate  
-- Handles high-dimensional data efficiently  
+Modern cybersecurity threats are increasingly sophisticated, making traditional signature-based intrusion detection insufficient.  
+This project uses **unsupervised learning** to detect unknown and zero-day threats by analyzing network traffic patterns without requiring labeled data.
 
----
+You implemented and compared four models:
 
-## 📊 Features Extracted
-- Request timestamps  
-- IP address frequency  
-- URL endpoints accessed  
-- Request methods (GET/POST)  
-- Time-based traffic patterns  
-- Status codes  
+- **Isolation Forest** (best performance)
+- **K-Means Clustering**
+- **DBSCAN**
+- **One-Class SVM**
+
+The dataset contains **40,000 synthetic network events** with features like IP addresses, ports, protocol, packet length, severity, and traffic types.
 
 ---
 
-## 🛠 Tech Stack
+## 🚀 Objectives
+
+- Identify anomalies in server logs and network traffic  
+- Compare unsupervised ML models for intrusion detection  
+- Perform feature engineering and dimensionality reduction  
+- Analyze model outputs and visualize anomalies  
+- Evaluate how well these methods detect potential cyberattacks  
+
+---
+
+## 🧠 Machine Learning Models Used
+
+### **1. Isolation Forest (Recommended)**
+- Best anomaly detection performance  
+- Identified 3–5% suspicious events  
+- Handles high-dimensional and imbalanced data well  
+
+### **2. K-Means Clustering**
+- Weak performance for anomalies  
+- Helpful for general traffic grouping  
+- High DBI and low Silhouette Score  
+
+### **3. DBSCAN**
+- Good at identifying dense vs sparse regions  
+- Highly sensitive to `eps` and `min_samples`  
+
+### **4. One-Class SVM**
+- Conservative anomaly detection  
+- Best for detecting subtle boundary anomalies  
+
+---
+
+## 🔧 Tech Stack
 
 - **Python**
 - **Pandas**
 - **NumPy**
-- **Matplotlib / Seaborn**
 - **Scikit-learn**
+- **Matplotlib / Seaborn**
 - **Jupyter Notebook**
 
 ---
-## 🚀 How It Works
 
-1. Load and clean server log data  
-2. Convert categorical log fields into numeric features  
-3. Apply Isolation Forest  
-4. Get anomaly scores for each log entry  
-5. Filter out entries above anomaly threshold  
-6. Visualize anomaly patterns  
+## 📊 How It Works
 
----
-
-## 📈 Visualizations
-
-The notebook includes:
-
-- Traffic pattern plots  
-- Anomaly score distribution  
-- Highlighted anomalous requests  
-- Time-series anomaly visualization  
+1. Load and inspect server log / network traffic dataset  
+2. Clean and preprocess data (handle missing values, encode categories)  
+3. Perform feature engineering (timestamp features, frequency encoding, IP hashing)  
+4. Scale numerical features  
+5. Apply dimensionality reduction (PCA, t-SNE for visualization)  
+6. Train anomaly detection models (Isolation Forest, DBSCAN, etc.)  
+7. Calculate anomaly scores and detect suspicious events  
+8. Visualize clustering and anomaly patterns  
+9. Compare all models using metrics & visual analysis  
 
 ---
 
-## ✅ Results
+---
 
-The model successfully:
+## 📈 Results & Discussion
 
-- Identified abnormal traffic spikes  
-- Detected suspicious IP behavior  
-- Found rare access patterns not present in normal logs  
+- **Isolation Forest** produced the most meaningful and interpretable anomalies.  
+- **DBSCAN** detected a large number of noise points but was highly sensitive to parameters.  
+- **K-Means** failed to isolate outliers due to overlapping cluster shapes.  
+- **One-Class SVM** was accurate but flagged fewer anomalies.  
+- Visualizations (t-SNE, PCA) helped confirm anomaly separations.  
 
 ---
 
-## 📌 Future Improvements
+## 🛡 Key Insights
 
-- Use LSTM models for time-series predictions  
-- Integrate with real-time log monitoring  
-- Deploy using FastAPI or Flask  
-- Add dashboard visualization using Streamlit  
+- Unsupervised learning can detect threats without needing labeled attack data.  
+- Feature engineering significantly improves anomaly separation.  
+- Isolation Forest + PCA gives the best practical results.  
+- Synthetic datasets are useful for modeling but need real-world validation.  
 
 ---
 
-## 🧑‍💻 Author  
+## 🔮 Future Improvements
+
+- Apply deep learning models for sequence-based logs  
+- Deploy a real-time monitoring pipeline with alerts  
+- Integrate with a dashboard (Streamlit / Grafana)  
+- Test on real server logs for better accuracy  
+
+---
+
+## 👨‍💻 Author
+
 **Hitesh Duggal**  
-B.Tech CSE | Data Science & ML Enthusiast
+B.Tech CSE | Data Science & Machine Learning Enthusiast  
+NIELIT Summer Training – Data Science Using Python (2025)
+
+
 
