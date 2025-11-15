@@ -50,6 +50,48 @@ This approach performs significantly better than clustering-based methods like K
 - **Jupyter Notebook**
 
 ---
+## 🚀 How It Works
 
-## 📁 Project Structure
+1. Load and clean server log data  
+2. Convert categorical log fields into numeric features  
+3. Apply Isolation Forest  
+4. Get anomaly scores for each log entry  
+5. Filter out entries above anomaly threshold  
+6. Visualize anomaly patterns  
+
+---
+
+## 📈 Visualizations
+
+The notebook includes:
+
+- Traffic pattern plots  
+- Anomaly score distribution  
+- Highlighted anomalous requests  
+- Time-series anomaly visualization  
+
+---
+
+## ✅ Results
+
+The model successfully:
+
+- Identified abnormal traffic spikes  
+- Detected suspicious IP behavior  
+- Found rare access patterns not present in normal logs  
+
+---
+
+## 📌 Future Improvements
+
+- Use LSTM models for time-series predictions  
+- Integrate with real-time log monitoring  
+- Deploy using FastAPI or Flask  
+- Add dashboard visualization using Streamlit  
+
+---
+
+## 🧑‍💻 Author  
+**Hitesh Duggal**  
+B.Tech CSE | Data Science & ML Enthusiast
 
